@@ -1,15 +1,10 @@
 import { Layout } from 'antd';
-import ModalPortal from 'components/Modal/ModalPortal';
-import { Navigate, Outlet } from 'react-router-dom';
-import { navigateToPublicRoute, useCheckLoginUser } from 'routes';
+import { Outlet } from 'react-router-dom';
 
 export const PrivateRoute = () => {
-  return useCheckLoginUser() ? (
+  return (
     <Layout>
-      <ModalPortal />
       <Outlet />
     </Layout>
-  ) : (
-    <Navigate to={navigateToPublicRoute()} />
   );
 };

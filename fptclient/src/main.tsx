@@ -3,10 +3,8 @@ import dayjs from 'dayjs';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import ReactDOM from 'react-dom/client';
-import { Provider } from 'react-redux';
 
 import { COLOR_PRIMARY } from 'config/constants/index.ts';
-import store from 'store';
 import App from './App.tsx';
 
 import 'dayjs/locale/vi';
@@ -47,9 +45,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     }}
   >
     <QueryClientProvider client={queryClient}>
-      <Provider store={store}>
         <App />
-      </Provider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </ConfigProvider>,

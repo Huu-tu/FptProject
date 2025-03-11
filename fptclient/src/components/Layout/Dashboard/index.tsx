@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import { faCopyright } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Layout } from 'antd';
-import { Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 
 import { FOOTER_CONTENT } from 'config/constants';
 
@@ -19,9 +19,7 @@ const DashboardLayout: FC = () => {
 
       <Layout>
         <Layout className={classes['layout-collapsed']}>
-          <Layout.Content className="bg-wohite px-4 pb-2 pt-2">
-            <Outlet />
-          </Layout.Content>
+          <Layout.Content className="bg-wohite px-4 pb-2 pt-2">{/*<Outlet />*/}</Layout.Content>
         </Layout>
       </Layout>
 
