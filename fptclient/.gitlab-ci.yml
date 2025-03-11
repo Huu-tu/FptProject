@@ -1,0 +1,48 @@
+# docs: https://docs.gitlab.com/ee/development/cicd/
+
+stages:
+  - cache
+  - test
+
+default:
+  image: node:18-alpine
+
+.node_modules-cache: &node_modules-cache # Cache node_modules
+  key:
+    files:
+      - yarn.lock
+  paths:
+    - node_modules
+  policy: pull
+
+.run-on-merge-request: &run-on-merge-request # Run job on Merge Requests
+  if: '$CI_MERGE_REQUEST_IID'
+
+.run-on-default-branch: &run-on-default-branch # Run job on main branch
+  if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+
+install_deps:
+  stage: cache
+  cache:
+    - <<: *node_modules-cache
+      policy: pull-push
+  rules:
+    - <<: *run-on-merge-request
+    - <<: *run-on-default-branch
+  script:
+    - yarn bootstrap --cache-folder .yarn
+
+code_test:
+  stage: test
+  cache:
+    - <<: *node_modules-cache
+  rules:
+    - <<: *run-on-merge-request
+    - <<: *run-on-default-branch
+  script:
+    - yarn test-all
+  after_script:
+    - >
+      if [ "$CI_JOB_STATUS" == "failed" ]; then
+        eval "${FAILED_MESSAGE}"
+      fi
