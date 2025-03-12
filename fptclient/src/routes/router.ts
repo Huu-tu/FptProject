@@ -10,14 +10,16 @@ export const FPT_ROUTERS = {
 
   FPT: {
     BASE: '/',
-    INFO: '/info',
+    INFO: {
+      INDEX: '/info-event',
+      INTRO_VIETTEL: '/intro-viettel',
+    },
     PRODUCT: '/products',
     SUPPORT: {
       INDEX: '/support_customer',
-      SERVICE_CONFIG: '/setup/service-config',
-      AUTHORIZATION_CONFIG: '/setup/authorization-config',
-      ACCESS_ACCOUNT: '/setup/access-account',
-      DOCS_MANAGEMENT: '/setup/docs',
+      SUPPORT_ONLINE: '/support/support-online',
+      SUPPORT_CALL: '/support/support-call',
+      SUPPORT_QUESTION: '/support/support-question',
     },
   },
 } as const;

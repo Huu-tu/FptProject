@@ -1,4 +1,12 @@
 {
+  "info_event": "Tin tức sự kiện",
+  "intro_viettel": "Giới thiệu Viettel",
+  "product_service": "Sản phẩm dịch vụ",
+  "support_customer": "Hỗ trợ khách hàng",
+  "support_online": "Nhắn tin online với CSKH",
+  "support_call": "Hỗ trợ cuộc gọi",
+  "support_question": "Câu hỏi hỗ trợ",
+
   "agent_code": "Mã đại lý",
   "access_account": "Tài khoản truy cập",
   "action": "Hành động",

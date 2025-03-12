@@ -3,7 +3,7 @@ export { QUERY_KEY } from './queryKey';
 
 export * from '../../routes/router';
 
-export const FOOTER_CONTENT = '2024 MyID';
+export const FOOTER_CONTENT = 'Viettel Telecom 2015. All rights reserved.\n';
 export const COLOR_PRIMARY = 'rgba(0, 145, 140, 255)';
 
 export enum APP {
